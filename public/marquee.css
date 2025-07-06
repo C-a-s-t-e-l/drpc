@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#pStore{
+    cursor: pointer;
+}
+
+.marquee-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    background-color: #f3f6fb;
+
+}
+
+.marquee-cont {
+    display: flex;
+    justify-content: space-between;
+    color: #6d758d;
+    font-family: Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    flex-direction: row;
+    width: 1500px;
+
+}
+
+#marquee2 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+}

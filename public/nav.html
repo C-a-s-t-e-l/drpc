@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRE Computer Center</title>
+    <link rel="stylesheet" href="styles-nav.css">
+    <style>
+        select {
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            color: #f0f0f0;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+            font-weight: 300;
+            font-size: 20px;
+        }
+
+        select:hover,
+        select:focus {
+            background-color: white;
+            border: 2px solid black;
+            color: black;
+            /* box-shadow: 0 0 10px rgba(0, 102, 204, 0.7); */
+            cursor: pointer;
+        }
+
+        option {
+            padding: 10px;
+            background-color: white;
+            color: black;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        option:hover {
+            background-color: #0EA5E9 !important;
+            color: black;
+            cursor: pointer;
+        }
+
+        optgroup {
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            padding: 5px 0;
+            background-color: white;
+            text-transform: uppercase;
+
+        }
+
+        optgroup option {
+            padding: 8px 15px;
+            background-color: white;
+            color: #0f0d0d;
+        }
+
+        optgroup option:hover {
+            background-color: #0EA5E9;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #mainCat {
+
+            text-align: center;
+            font-family: Poppins;
+
+        }
+
+        #welcome-message {
+            width: 20%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <ul id="head">
+            <li onclick="loadContent('products')"><a id="signin-nav">PRODUCTS</a></li>
+            <li>
+                <select id="categorySelect" onchange="fetchProductsSearch(this.value)">
+                    <option value="" id="mainCat"> Categories </option>
+
+                    <optgroup label="Computers">
+                        <option value="Computer">Computers</option>
+                        <option value="Laptop">Laptops</option>
+                        <option value="Desktop">Desktops</option>
+                    </optgroup>
+
+                    <optgroup label="Accessories">
+                        <option value="Monitor">Monitors</option>
+                        <option value="Keyboard">Keyboards</option>
+                        <option value="Mice">Mice</option>
+                        <option value="Headset">Headphones</option>
+                        <option value="Storage">Storage Devices</option>
+                        <option value="Cable">Cables</option>
+                        <option value="Cooling">Cooling Systems</option>
+                        <option value="Power Supply">Power Supplies</option>
+                    </optgroup>
+
+                    <optgroup label="Networking & Software">
+                        <option value="Network">Networking</option>
+                        <option value="Software">Software</option>
+                    </optgroup>
+                </select>
+            </li>
+            <li onclick="loadContent('address')"><a id="signin-nav">ADDRESS</a></li>
+            <li onclick="loadContent('orderGuide')"><a id="signin-nav">How to Order</a></li>
+
+
+            <li onclick="loadContent('login')" id="signinBtn"><a id="signin-nav">Login</a></li>
+            <li onclick="loadContent('register')" id="signupBtn"><a id="signin-nav">SIGN UP</a></li>
+            <!-- <li><a href="" id="asd">CONTACT US</a></li> -->
+            <select id="welcome-message" onchange="handleSelection(this.value)">
+                <option value="guest" selected>Welcome, Guest</option>
+                <option value="profile">Profile</option>
+                <option value="address">Address</option>
+                <option value="how-to-order">How to Order</option>
+                <option value="logout" id="logout-opt">Logout</option>
+            </select>
+
+
+
+
+            <!-- <li onclick="logoutUser()" id="logout"><a href="" id="signin-nav">Logout</a></li> -->
+        </ul>
+        <!-- <nav aria-label="breadcrumb" id="breadcrumbNav">
+            <ol id="breadcrumb-list" class="breadcrumb">
+                <li><a href="#" onclick="loadContent('products')">Home</a></li>
+            </ol>
+        </nav> -->
+
+    </header>
+
+
+
+    <script src="script-login.js" defer></script>
+    <script src="script-products.js" defer></script>
+</body>
+<script>
+
+
+</script>
+
+</html>

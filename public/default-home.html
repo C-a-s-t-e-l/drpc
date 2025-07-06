@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel Example</title>
+
+  <link rel="stylesheet" href="def-home.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <style>
+    * img:hover {
+      cursor: pointer;
+    }
+
+    #feature-div {
+      width: 90%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body id="def-body">
+
+  <div id="feature-div">
+    <h1>Featured Products</h1>
+  </div>
+  <section id="hero-section">
+    <div id="hero-image-solo" class="hero-containers">
+      <img src="images/solo-img.jpg" alt="" onclick="fetchProductsSearch('computer')">
+    </div>
+
+    <div id="hero-4-img" class="hero-containers">
+      <img src="images/4-1.jpg" alt="" onclick="fetchProductsSearch('computer')">
+      <img src="images/4-2.jpg" alt="" onclick="fetchProductsSearch('computer')">
+      <img src="images/4-3.jpg" alt="" onclick="fetchProductsSearch('computer')">
+      <img src="images/4-4.jpg" alt="" onclick="fetchProductsSearch('computer')">
+    </div>
+  </section>
+
+
+  <div class="marquee-body">
+    <div class="marquee">
+      <div class="marquee-content">
+
+        <button class="marquee-item" onclick="fetchProductsSearch(query = 'monitor' && 'Computer')"><img
+            src="/assets/desktop.png" alt="">Desktop</button>
+        <div class="marquee-item" onclick="fetchProductsSearch(query = 'mouse')"><img src="/assets/computer-mouse.png"
+            alt="">Mouse</div>
+        <div class="marquee-item" onclick="fetchProductsSearch(query = 'computer')"><img src="/assets/computer-set.png"
+            alt="">Computer Sets</div>
+        <div class="marquee-item" onclick="fetchProductsSearch(query = 'headset')"><img src="/assets/headphones.png"
+            alt="">Headphones</div>
+        <div class="marquee-item" onclick="fetchProductsSearch(query = 'chair')"><img src="/assets/gaming-chair.png"
+            alt="">Gaming Chairs</div>
+
+
+        <button class="marquee-item" onclick="fetchProductsSearch(monitor)"><img src="/assets/desktop.png"
+            alt="">Desktop</button>
+        <div class="marquee-item" onclick="fetchProductsSearch(query = 'mouse')"><img src="/assets/computer-mouse.png"
+            alt="">Mouse</div>
+        <div class="marquee-item" onclick="fetchProductsSearch(query = 'computer')"><img src="/assets/computer-set.png"
+            alt="">Computer Sets</div>
+        <div class="marquee-item" onclick="fetchProductsSearch(query = 'headset')"><img src="/assets/headphones.png"
+            alt="">Headphones</div>
+        <div class="marquee-item" onclick="fetchProductsSearch(query = 'chair')"><img src="/assets/gaming-chair.png"
+            alt="">Gaming Chairs</div>
+
+
+        <div class="marquee-item"><img src="/assets/gpu.png" alt="" onclick="fetchProductsSearch(query = 'gpu')">GPU
+        </div>
+        <div class="marquee-item"><img src="/assets/motherboard.png" alt=""
+            onclick="fetchProductsSearch(query = 'motherboard')">Motherboard</div>
+        <div class="marquee-item"><img src="/assets/ssd-disk.png" alt=""
+            onclick="fetchProductsSearch('usb, drive, storage')">Storage Devices</div>
+        <div class="marquee-item"><img src="/assets/cpu-case.png" alt=""
+            onclick="fetchProductsSearch(query = 'case')">PC Cases</div>
+        <div class="marquee-item"><img src="/assets/webcam.png" alt=""
+            onclick="fetchProductsSearch(query = 'camera')">Webcam</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="hero-section-2">
+    <div id="hero-image-solo-2" class="hero-containers">
+      <img src="images/solo-img.jpg" alt="" onclick="fetchProductsSearch('computer')">
+    </div>
+
+    <div id="hero-4-img-2" class="hero-containers">
+      <img src="images/4-1.jpg" alt="" onclick="fetchProductsSearch('computer')">
+      <img src="images/4-2.jpg" alt="" onclick="fetchProductsSearch('computer')">
+      <img src="images/4-3.jpg" alt="" onclick="fetchProductsSearch('computer')">
+      <img src="images/4-4.jpg" alt="" onclick="fetchProductsSearch('computer')">
+    </div>
+  </section>
+
+  <div class="marquee-body">
+    <div class="marquee" id="marquee-2">
+      <div class="marquee-content-2">
+        <div class="marquee-item" onclick="fetchProductsSearch('acer')">
+          <img src="/assets/brands/acer.png" alt="Acer">Acer
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('lenovo')">
+          <img src="/assets/brands/lenovo.jpg" alt="Lenovo">Lenovo
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('asus')">
+          <img src="/assets/brands/asus.png" alt="Asus">Asus
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('dell')">
+          <img src="/assets/brands/dell.png" alt="Dell">Dell
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('hp')">
+          <img src="/assets/brands/hp.png" alt="HP">HP
+        </div>
+
+
+        <div class="marquee-item" onclick="fetchProductsSearch('msi')">
+          <img src="/assets/brands/msi.png" alt="MSI">MSI
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('acer')">
+          <img src="/assets/brands/acer.png" alt="Acer">Acer
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('lenovo')">
+          <img src="/assets/brands/lenovo.jpg" alt="Lenovo">Lenovo
+        </div>
+
+
+        <div class="marquee-item" onclick="fetchProductsSearch('asus')">
+          <img src="/assets/brands/asus.png" alt="Asus">Asus
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('gigabyte')">
+          <img src="/assets/brands/gigabyte.png" alt="Gigabyte">Gigabyte
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('razer')">
+          <img src="/assets/brands/razer.jpg" alt="Razer">Razer
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('corsair')">
+          <img src="/assets/brands/corsair.png" alt="Corsair">Corsair
+        </div>
+        <div class="marquee-item" onclick="fetchProductsSearch('logitech')">
+          <img src="/assets/brands/logitech.png" alt="Logitech">Logitech
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+</html>

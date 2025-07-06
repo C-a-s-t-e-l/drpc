@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body id="profile-body">
+    <div id="profile-container">
+        <h2>User Profile</h2>
+        <div id="profile-data">
+            <p><strong>Name:</strong> <span id="profile-name">N/A</span></p>
+            <p><strong>Address:</strong> <span id="profile-address">N/A</span></p>
+            <p><strong>Landmark:</strong> <span id="profile-landmark">N/A</span></p>
+            <p><strong>Email:</strong> <span id="profile-email">N/A</span></p>
+            <p><strong>Phone Number:</strong> <span id="profile-phone">N/A</span></p>
+        </div>
+        <button id="edit-button" class="profile-button">Edit Profile</button>
+        <form id="profile-form" style="display: none;">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="profile-name-input" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="profile-address-input" required>
+            </div>
+            <div class="form-group">
+                <label for="landmark">Landmark:</label> <!-- New landmark field -->
+                <input type="text" id="profile-landmark-input" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="profile-email-input" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="profile-phone-input" maxlength="11" pattern="\d{11}" required
+                    placeholder="09074001112" title="Enter an 11-digit phone number"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11);">
+            </div>
+
+            <button type="submit" class="profile-button">Update Profile</button>
+            <button type="button" id="cancel-edit" class="profile-button">Cancel</button>
+        </form>
+
+        <!-- Orders Section -->
+        <h2>Your Orders</h2>
+        <table id="orders-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Total Amount</th>
+                    <th>Items</th>
+                    <th>Status</th>
+                    <th>Payment Status</th>
+                    <th>Receipt</th>
+
+                </tr>
+            </thead>
+            <tbody id="orders-table-body">
+                <!-- Orders will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="profile.js" defer></script>
+    <script src="script-login.js" defer></script>
+    <script src="orders.js" defer></script>
+</body>
+
+</html>

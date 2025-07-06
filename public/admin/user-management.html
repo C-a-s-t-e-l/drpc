@@ -1,0 +1,21 @@
+<h2>User Management</h2>
+<div>
+    <h3>Users</h3>
+    <table id="user-table">
+        <tr>
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        <!-- User data will be populated here -->
+    </table>
+    <button onclick="showAddUserForm()">Add User</button>
+    <div id="add-user-form" style="display: none;">
+        <h4>Add New User</h4>
+        <form id="new-user-form">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Create User</button>
+        </form>
+    </div>
+</div>

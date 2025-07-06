@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DRE Computer Center</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="DRE Computer Center - Your Ultimate Gaming Computer Hub" />
+    <meta property="og:description" content="Shop computers, laptops, and accessories at DRE Computer Center." />
+    <meta property="og:url" content="https://drecomputercenter.com" />
+    <meta property="og:image" content="https://drecomputercenter.com/images/tag-img.jpeg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DRE Computer Center- Your Ultimate Gaming Computer Hub">
+    <meta name="twitter:description"
+        content="Explore top-notch gaming computers, laptops, and accessories at DRE Computer Center. Built for gamers, with performance and style in mind.">
+    <meta name="twitter:image" content="https://drecomputercenter.com/images/og-image.jpg">
+
+    <link rel="icon" href="/images/DRE-icon.png">
+    <link rel="stylesheet" href="product-details.css">
+    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="styles-dre.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Poppins:wght@100;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        .modal-notification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        #modal-message {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        #close-modal-btn {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 20px auto 0;
+        }
+
+        #close-modal-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-content button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #5a6268;
+        }
+
+        .modal-content button:nth-child(2) {
+            background-color: #dc3545;
+        }
+
+        .modal-content button:nth-child(2):hover {
+            background-color: #c82333;
+        }
+
+        .modal-notification.logout-modal {
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 5px solid #ccc;
+            border-top-color: #333;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+
+<body id="index-body">
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <div id="index-container" style="display: none;">
+
+        <div id="modal-notification" class="modal-notification" style="display: none;">
+            <div class="modal-content">
+                <p id="modal-message"></p>
+                <button id="close-modal-btn" onclick="closeModalNotification()">Close</button>
+            </div>
+        </div>
+
+
+
+        <!-- <div id="marquee-container"></div> -->
+        <div id="head-container"></div>
+
+        <div id="nav-container"></div>
+        <div class="main-container">
+            <!-- <div id="loading-spinner" class="spinner"></div> -->
+
+            <div id="content-container">
+                <!-- <aside id="aside">
+                <p>check</p>
+                <img src="./images/aside-category.png" id="asideImg" alt="">
+            </aside> -->
+                <div id="content-div-container">
+                    <div id="content-div" class="productoptFix"></div>
+                </div>
+                <aside id="cart" class="cart" style="display: none;">
+                    <h2>Shopping Cart</h2>
+                    <div id="cart-items"></div>
+                    <div id="cart-total">Total: Php 0.00</div>
+                    <button id="hideCartBtn" class="checkoutBtn">Close Cart</button>
+                    <button onclick="loadContent('checkout') " id="checkout-button"
+                        class="checkoutBtn">Checkout</button>
+                </aside>
+            </div>
+        </div>
+
+        <div id="footer-container"></div>
+
+        <script id="script-login" src="script-login.js" defer></script>
+        <script id="script-products" src="script-products.js" defer></script>
+        <script src="checkout.js" defer></script>
+
+
+
+    </div>
+
+    <script>
+
+
+
+
+        function showModalNotification(message) {
+            const modal = document.getElementById('modal-notification');
+            const messageContainer = document.getElementById('modal-message');
+
+            messageContainer.textContent = message;
+            modal.style.display = 'flex';
+        }
+
+        function closeModalNotification() {
+            const modal = document.getElementById('modal-notification');
+            const closeBtn = document.getElementById('close-modal-btn');
+
+            modal.style.display = 'none';
+
+            closeBtn.style.display = 'block';
+
+            modal.classList.remove('logout-modal');
+
+            const modalContent = modal.querySelector('.modal-content');
+            const buttons = modalContent.querySelectorAll('button:not(#close-modal-btn)');
+            buttons.forEach(button => button.remove());
+        }
+
+
+
+
+        window.addEventListener("load", function () {
+            document.getElementById("preloader").style.display = "none";
+            document.getElementById("index-container").style.display = "block";
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainDivGet = document.getElementsByClassName('main-container');
+            mainDivGet[0].style.display = 'flex';
+
+            fetch('/api/getUserProfile', {
+                method: 'GET',
+                credentials: 'include'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('User not authenticated');
+                    }
+                })
+                .then(userProfile => {
+
+                    const nav = document.getElementById('signinBtn');
+                    const signup = document.getElementById('signupBtn');
+                    if (nav) {
+                        nav.style.display = 'none';
+                    }
+                    if (signup) {
+                        signup.style.display = 'none';
+                    }
+
+                    sessionStorage.setItem("userLoggedIn", true);
+                    sessionStorage.setItem("user", JSON.stringify(userProfile));
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        });
+
+        function formatPrice(price) {
+            return `Php ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        }
+
+
+        function confirmOrder() {
+            const checkoutBtn = document.getElementById('confirm-order');
+            const userLoggedIn = sessionStorage.getItem("userLoggedIn");
+
+            if (!userLoggedIn) {
+                showModalNotification("Please log in to complete your order.");
+                loadContent('login');
+                return;
+            }
+
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                showModalNotification("Cart is empty, add products to cart to checkout");
+                return;
+            }
+
+            let userProfile;
+
+            fetch('/api/getUserProfile', {
+                method: 'GET',
+                credentials: 'include'
+            })
+                .then(response => {
+                    if (response.status === 401) {
+                        showModalNotification("Please log in to complete your order.");
+                        loadContent('login');
+                        throw new Error('User not authenticated');
+                    }
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch user profile');
+                    }
+                    return response.json();
+                })
+                .then(profile => {
+                    userProfile = profile;
+                    const userId = userProfile.id;
+
+                    if (!userId) {
+                        console.error('User ID is not found in the user profile');
+                        return;
+                    }
+
+                    // Check if all required user details are present
+                    const requiredFields = {
+                        name: "Name",
+                        address: "Address",
+                        street_landmark: "Landmark",
+                        email: "Email",
+                        phoneNumber: "Phone number"
+                    };
+
+                    const missingFields = Object.keys(requiredFields).filter(field => !userProfile[field]);
+
+                    if (missingFields.length > 0) {
+                        const missingFieldNames = missingFields.map(field => requiredFields[field]);
+                        showModalNotification(`Please complete your profile. Missing details: ${missingFieldNames.join(', ')}`);
+                        throw new Error('Incomplete user details');
+                    }
+
+                    checkoutBtn.style.display = 'none';
+
+                    return document.fonts.ready.then(() => {
+                        return html2canvas(document.querySelector("#checkout-container"), {
+                            scale: 1.5,
+                            backgroundColor: "#e0f7ff"
+                        }).then(canvas => {
+                            let link = document.createElement("a");
+                            link.download = "receipt.jpg";
+                            link.href = canvas.toDataURL("image/jpeg");
+                            link.click();
+
+                            return uploadReceipt(link.href, userProfile);
+                        });
+                    });
+                })
+                .then(receiptData => {
+                    if (!receiptData || !receiptData.filePath) {
+                        console.error('Receipt data is missing required properties:', receiptData);
+                        return;
+                    }
+
+                    const totalText = document.getElementById("checkout-total").textContent;
+                    const totalAmount = parseFloat(totalText.replace('Php ', '').replace(/,/g, ''));
+
+                    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+                    const orderData = {
+                        userId: userProfile.id,
+                        name: userProfile.name,
+                        cart: cartItems,
+                        totalAmount: totalAmount,
+                        address: userProfile.address,
+                        street_landmark: userProfile.street_landmark,
+                        receiptPath: receiptData.filePath
+                    };
+
+                    return fetch('/api/saveOrder', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(orderData)
+                    });
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(err => {
+                            throw new Error(err.error || 'Failed to save order');
+                        });
+                    }
+                    window.location.reload();
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Order saved:', data);
+                    localStorage.removeItem("cart");
+                    loadContent('orderGuide');
+                })
+                .catch(error => {
+                    console.error('Error processing order:', error);
+                });
+        }
+
+
+        function uploadReceipt(receiptImage, userProfile) {
+            return fetch('/api/uploadReceipt', {
+                method: 'POST',
+                body: JSON.stringify({ receipt: receiptImage }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(err => {
+                            throw new Error(err.error || 'Error uploading receipt');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+
+                    if (!data.filePath) {
+                        throw new Error('Uploaded receipt path is missing');
+                    }
+                    return data;
+                });
+        }
+
+        const API_BASE_URL = 'https://drecomputercenter.com';
+
+
+    </script>
+
+</body>
+
+</html>

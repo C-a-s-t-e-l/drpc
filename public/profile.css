@@ -1,0 +1,108 @@
+#profile-body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+#profile-container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.5em;
+}
+
+h2 {
+    color: #0056b3;
+    text-align: center;
+}
+
+#profile-data {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #0056b3;
+    border-radius: 8px;
+    background-color: #e7f1ff;
+}
+
+#profile-data p {
+    margin: 10px 0;
+}
+
+.profile-button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.profile-button:hover {
+    background-color: #003d80;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+#orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#orders-table th,
+#orders-table td {
+   
+    padding: 10px;
+    text-align: center;
+}
+
+#orders-table th {
+    background-color: #0056b3;
+    color: white;
+}
+
+#orders-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#orders-table tbody tr:hover {
+    background-color: #e7f1ff;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body id="product-management-body">
+    <div id="container1">
+
+        <div class="product-management-container">
+
+            <h1>Product Management</h1>
+            <form id="productForm" method="post" enctype="multipart/form-data">
+                <div class="form-section">
+                    <h2>Add New Product</h2>
+                    <input type="hidden" name="productId" id="productId">
+
+                    <input type="text" name="productName" placeholder="Product Name" required>
+                    <input type="text" name="price" placeholder="Enter price" required />
+                    <input type="text" name="category" placeholder="Category" required>
+
+                    <input type="text" name="brand" required placeholder="Brand"> <!-- Brand input added here -->
+
+                    <input type="number" name="stock" placeholder="Stock" required>
+
+                    <input type="hidden" id="existingImageUrl" name="existingImageUrl" value="">
+                    <img id="imagePreview" src="/uploads/product-29.png" alt="Default product image">
+                    <input type="file" name="productImage" accept="image/*" id="productImageInput">
+
+                    <textarea name="description" placeholder="Product Description" required></textarea>
+                    <!-- <div id="descriptionDisplay" class="product-description"></div> -->
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="product-management-container">
+            <h2 id="list-h2">Product List</h2>
+            <div id="searchBar">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+                <div class="search-box">
+                    <input class="search-input" type="text" placeholder="Search something.." id="productSearch"
+                        oninput="searchProducts()">
+                    <button class="searchBtn" id="searchButton"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                        <th id="actions-th">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody"></tbody>
+        </table>
+        <div id="pagination"></div>
+    </div>
+    </div>
+    <script src="admin-product.js" defer></script>
+    <script src="admin.js" defer></script>
+</body>
+
+</html>

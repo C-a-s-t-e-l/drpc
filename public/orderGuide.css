@@ -1,0 +1,60 @@
+#orderGuideBody {
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.how-to-order-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.how-to-order-container h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-option {
+    margin-bottom: 30px;
+}
+
+.order-option h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.order-option p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.order-option ol {
+    margin-left: 20px;
+}
+
+.order-option ol li {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.order-option a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.order-option a:hover {
+    text-decoration: underline;
+}

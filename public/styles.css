@@ -1,0 +1,151 @@
+styles.css body {
+    font-family: Arial, sans-serif;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* #registerForm {
+    margin-top: -30px;
+} */
+
+#button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#loginDivContainer {
+    display: flex;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 200px;
+    /* background-color: #eaeaeb;
+    border-radius: 30px; */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+
+h2 {
+    color: #000;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    z-index: 1;
+    position: relative;
+    height: 30%;
+}
+
+input {
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #007bff;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+}
+
+input:focus {
+    border-color: #000;
+    background-color: #f0f0f0;
+}
+
+#regSubmit,
+#googleBtn,
+#loadReg-button,
+#loginBtn {
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    /* background: linear-gradient(135deg, #007bff, #000); */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+#loginBtn,
+#regSubmit {
+    background-color: #0466c8;
+    color: white;
+}
+
+#regSubmit:hover,
+#googleBtn:hover,
+#loadReg-buttonhover,
+#loginBtn:hover {
+    /* background: linear-gradient(135deg, #000, #007bff); */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+#googleBtn {
+    background-color: #EA4335;
+    width: 48%;
+    padding: 12px;
+    border-radius: 50px;
+    font-size: 16px;
+    color: white;
+}
+
+/* #googleBtn:hover {
+    background-color: #357ae8;
+} */
+
+#loadReg-button {
+    background-color: #000;
+    color: white;
+    width: 48%;
+    padding: 12px;
+    border-radius: 50px;
+    font-size: 16px;
+}
+
+#loadReg-button:hover {
+    background-color: #333;
+}
+
+#regSubmit,
+#googleBtn,
+#loadReg-button,
+#loginBtn {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container:hover h2,
+.container:hover form,
+.container:hover #button-container {
+    transform: scale(1.02);
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Order Management</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div id="searchBar">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <div class="search-box">
+            <input class="search-input" type="text" placeholder="Search something.." id="productSearch"
+                oninput="searchOrders()">
+            <button class="searchBtn" id="searchButton"><i class="bi bi-search"></i></button>
+        </div>
+    </div>
+
+    <h1>Order Management</h1>
+
+    <table id="ordersTable">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Name</th>
+                <th>Items</th>
+                <th>Receipt</th>
+                <th>Total Price</th>
+                <th>Address</th>
+                <th>Shipping Status</th>
+                <th>Payment Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Orders will be populated here -->
+        </tbody>
+
+    </table>
+    <div id="pagination"></div>
+    <h1 id="order-search-tag" style="margin:auto; font-size:50px; top: 150px; position: relative;">Search to load
+        content</h1>
+
+    <!-- Script to handle fetching and displaying data -->
+    <script src="admin.js"></script>
+</body>
+
+</html>

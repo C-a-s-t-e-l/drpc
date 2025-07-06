@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="icon" href="/uploads/admin-img.png">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Honk&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .modal-notification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+
+        }
+
+        #close-modal-btn {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 20px auto 0;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        #modal-message {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        #pagination {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .pagination-button,
+        #pagination button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 30px;
+        }
+
+        .pagination-button:hover,
+        #pagination button:hover {
+            background-color: #2382e7;
+            transform: translateY(-5px);
+        }
+
+        .pagination-button:active,
+        #pagination button:active {
+            transform: translateY(-2px);
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body id="admin-body">
+
+    <div id="modal-notification" class="modal-notification" style="display: none;">
+        <div class="modal-content">
+            <p id="modal-message"></p>
+
+            <button id="close-modal-btn" onclick="closeModalNotification()">Close</button>
+        </div>
+    </div>
+    <header>
+        <div class="logo">DRE Computer Center Admin</div>
+        <img src="/assets/logout.png" onclick="logoutUser()" alt=""></button>
+    </header>
+
+    <div id="container">
+        <aside>
+            <ul>
+                <li onclick="loadContent('dash-overview')">
+                    <img src="/assets/dashboard.png" alt=""><a id="dash-nav">Dashboard</a>
+                </li>
+                <!-- <li><a onclick="loadContent('user-management')" id="dash-nav">User Management</a></li> -->
+                <li onclick="loadContent('product-management')"><img src="/assets/products.png" alt=""><a
+                        id="dash-nav">Product Management</a></li>
+                <li onclick="loadContent('order-management')"><img src="/assets/orders.png" alt=""><a
+                        id="dash-nav">Order Management</a></li>
+                <!-- <li><a onclick="loadContent('reports')" id="dash-nav">Reports</a></li>
+                    <li><a onclick="loadContent('site-management')" id="dash-nav">Site Management</a></li>
+                    <li><a onclick="loadContent('feedback')" id="dash-nav">Feedback</a></li>
+                    <li><a onclick="loadContent('settings')" id="dash-nav">Settings</a></li> -->
+                <li onclick="loadContent('help')" id="dash-nav"><img src="/assets/help.png" alt=""><a>Help &
+                        Support</a>
+                </li>
+            </ul>
+        </aside>
+        <div id="main-admin-container">
+            <section class="overview">
+                <h2>Overview</h2>
+                <ul>
+                    <li>Total Users: 100</li>
+                    <li>Total Orders: 50</li>
+                    <li>Total Products: 20</li>
+                </ul>
+            </section>
+            <section class="quick-stats">
+                <h2>Quick Stats</h2>
+                <ul>
+                    <li>Total Sales: Php 5000</li>
+                    <li>Active Users: 75</li>
+                    <li>Pending Orders: 5</li>
+                </ul>
+            </section>
+            <section class="recent-activity">
+                <h2>Recent Activity</h2>
+                <ul>
+                    <li>User registrations: 5</li>
+                    <li>New orders: 3</li>
+                    <li>Low stock notifications: 2</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        © CasCodes
+    </footer>
+    <script src="admin.js" defer></script>
+    <script src="admin-product.js" defer></script>
+
+    <script>
+
+
+        function showModalNotification(message) {
+            const modal = document.getElementById('modal-notification');
+            const messageContainer = document.getElementById('modal-message');
+
+            messageContainer.textContent = message;
+            modal.style.display = 'flex';
+        }
+
+        function closeModalNotification() {
+            const modal = document.getElementById('modal-notification');
+            modal.style.display = 'none';
+        }
+
+
+        // Fetch orders data from the API
+        function loadOrders() {
+            fetch('/api/orders')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error fetching orders');
+                    }
+                    return response.json();
+                })
+                .then(orders => {
+                    const orderTable = document.getElementById('order-table');
+                    console.log('orders loaded');
+
+
+                    // Populate the table with order data
+                    orders.forEach(order => {
+                        const row = document.createElement('tr');
+
+                        // Create cells for each column
+                        const orderIdCell = document.createElement('td');
+                        orderIdCell.textContent = order.orderId;
+                        row.appendChild(orderIdCell);
+
+                        const userCell = document.createElement('td');
+                        userCell.textContent = order.userName;
+                        row.appendChild(userCell);
+
+                        const statusCell = document.createElement('td');
+
+                        // Create a dropdown for status selection
+                        const statusSelect = document.createElement('select');
+                        const statuses = ['pending', 'shipped', 'delivered', 'cancelled'];
+
+                        statuses.forEach(status => {
+                            const option = document.createElement('option');
+                            option.value = status;
+                            option.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+                            if (order.status === status) {
+                                option.selected = true; // Set the current status as selected
+                            }
+                            statusSelect.appendChild(option);
+                        });
+
+                        statusCell.appendChild(statusSelect);
+                        row.appendChild(statusCell);
+
+                        const actionsCell = document.createElement('td');
+
+                        // Create an Edit button
+                        const editButton = document.createElement('button');
+                        editButton.textContent = 'Edit';
+                        editButton.addEventListener('click', () => {
+                            const newStatus = statusSelect.value; // Get selected status from dropdown
+                            updateOrderStatus(order.orderId, newStatus); // Call function to update status
+                            console.log('edit button clicked');
+
+                        });
+
+                        actionsCell.appendChild(editButton);
+
+                        // Add a Delete button (implement if needed)
+                        const deleteButton = document.createElement('button');
+                        deleteButton.textContent = 'Delete';
+                        // Add delete functionality here if needed
+
+                        actionsCell.appendChild(deleteButton);
+                        row.appendChild(actionsCell);
+
+                        // Append the row to the table
+                        orderTable.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error loading orders:', error));
+        }
+
+        function updateOrderStatus(orderId, newStatus) {
+            fetch(`/api/updateOrderStatus`, {
+                method: 'PUT', // Use PUT method for updating
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ orderId, status: newStatus })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error updating order status');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Order status updated:', data);
+                    // Optionally, you can reload the orders or just show a success message
+                    loadOrders(); // Reload orders to reflect changes
+                })
+                .catch(error => console.error('Error updating order status:', error));
+        }
+        // Call loadOrders function when the page loads
+        window.onload = loadOrders;
+        window.onload = console.log('order JS ! loaded');
+
+        const API_BASE_URL = 'https://drecomputercenter.com';
+
+    </script>
+
+</body>
+
+</html>

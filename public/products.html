@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="products.css">
+    <script defer src="script-products.js"></script>
+
+    <style>
+        #pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+
+        }
+
+        .pagination-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .pagination-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .pagination-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            margin: 0 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="product-catalog"></div>
+    <div id="pagination"></div>
+
+
+</body>
+
+</html>
